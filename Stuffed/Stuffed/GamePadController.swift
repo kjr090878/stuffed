@@ -99,59 +99,30 @@ class GamePadController: UIViewController, MCNearbyServiceAdvertiserDelegate, MC
     
     @IBAction func jump(sender: AnyObject) {
         
-        let info = [
-            
-            "action" : "jump"
-            
-            
-        ]
-        
-        sendInfo(info)
+        sendData(GameData(action: .Jump))
         
     }
     
     
     @IBAction func left(sender: AnyObject) {
         
-        let info = [
-            
-            "action" : "move",
-            "direction" : "left"
-            
-        ]
+        sendData(GameData(action: .Move, direction: .Left))
         
-        sendInfo(info)
-        
+               
     }
     
     
     @IBAction func fire(sender: AnyObject) {
         
-        let info = [
-            
-            "action" : "fire"
-           
-            
-        ]
         
-        sendInfo(info)
+        sendData(GameData(action: .Fire))
         
     }
     
     @IBAction func right(sender: AnyObject) {
         
-//        let info = [
-//        
-//            "action" : "move",
-//            "direction" : "right"
-//        
-//        ]
-//        
-//        sendInfo(info)
-//        
-        let gameData = GameData(action: .Move, direction: .Right)
-        
-        sendData(gameData)
+
+        sendData(GameData(action: .Move, direction: .Right))
         
     
         
@@ -189,39 +160,6 @@ class GamePadController: UIViewController, MCNearbyServiceAdvertiserDelegate, MC
 
   
 
-    func sendInfo(info:[String:String]) {
-        
-        
-        
-        //// NSKeyedArchiver
-//        
-//        let data = NSKeyedArchiver.archivedDataWithRootObject(info)
-        
-        if let data = try? NSJSONSerialization.dataWithJSONObject(info, options: .PrettyPrinted) {
-            
-            
-            if let bID = boardID {
-                
-                do {
-                    
-                
-                
-                try session.sendData(data, toPeers: [bID], withMode: .Reliable)
-                    
-                } catch {
-                    
-                    print(error)
-                    
-                }
-                
-            }
-            
-            
-        }
-        
-       
-        
-        
-    }
+  
     
 }
