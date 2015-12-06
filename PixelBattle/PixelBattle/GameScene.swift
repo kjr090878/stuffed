@@ -20,32 +20,34 @@ class GameScene: SKScene {
         
     }
     
-//    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-//  
-//       /* Called when a touch begins */
-//        
-//        for touch in touches {
-//            let location = touch.locationInNode(self)
-//            
-//            
-//            let pixel = SKShapeNode(rectOfSize: CGSize(width: 20, height: 20))
-//            
-//            pixel.fillColor = UIColor.cyanColor()
-//            
-//            pixel.position = location
-//            
-//            pixel.strokeColor = SKColor.clearColor()
-//            
-//            pixel.physicsBody = SKPhysicsBody(rectangleOfSize: pixel.frame.size)
-//            
-//            addChild(pixel)
-//            
-//            print(frame)
-//            
-//        }
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+  
+       /* Called when a touch begins */
+        
+        for touch in touches {
+            let location = touch.locationInNode(self)
+            
+            
+            let pixel = SKShapeNode(rectOfSize: CGSize(width: 20, height: 20))
+            
+            pixel.fillColor = UIColor.cyanColor()
+            
+            pixel.position = location
+            
+            pixel.strokeColor = SKColor.clearColor()
+            
+            pixel.physicsBody = SKPhysicsBody(rectangleOfSize: pixel.frame.size)
+            
+            addChild(pixel)
+            
+            print(frame)
+            
+        }
     
    
-    override func update(currentTime: CFTimeInterval) {
+    func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
     }
+}
+
 }
